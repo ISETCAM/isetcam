@@ -8,7 +8,7 @@
 % sensor, or the luminance of an equal energy light in the scene, prior to
 % the optics.
 %
-% See also: signalCurrent, poissrnd, getMiddleMatrix
+% See also: signalCurrent, iePoisson, getMiddleMatrix
 %
 % Copyright Imageval Consulting, LLC 2015
 
@@ -111,7 +111,7 @@ fprintf('Direct calculation of photon rate:  %.4f (target = %.4f)\n',mean(pImage
 %% Histogram of photon numbers and expected Poisson distribution
 
 nSamp = round(max(2*sqrt(tRate)*50,1000));
-val = poissrnd(tRate,nSamp);
+val = iePoisson(tRate,nSamp);
 
 xval =  min(photons(:)):max(photons(:));
 

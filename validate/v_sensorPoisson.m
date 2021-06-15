@@ -36,7 +36,7 @@ vcNewGraphWin;
 nSamps = length(e(:));
 eHist = histogram(e(:),'Normalization','probability');
 hold on
-val = poissrnd(lambda,nSamps);
+val = iePoisson(lambda,nSamps);
 pHist = histogram(val(:),'Normalization','probability');
 pHist.NumBins = eHist.NumBins*2;
 hold off
@@ -81,9 +81,3 @@ fprintf('Data:    std dev %.2f\n',sigma);
 fprintf('-----\n');
 
 %% END
-
-
-
-
-
-

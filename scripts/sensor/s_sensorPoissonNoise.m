@@ -22,7 +22,7 @@ nSamp  = 100;
 useSeed = 1;
 photons = zeros(numel(lambda),nSamp);
 for ii=1:numel(lambda)
-    photons(ii,:) = poissrnd(lambda(ii),nSamp,useSeed);
+    photons(ii,:) = iePoisson(lambda(ii),nSamp,useSeed);
 end
 
 %%  In that case, we have the mean and standard deviations as follows

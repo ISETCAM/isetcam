@@ -16,7 +16,7 @@ function [noisyImage,theNoise] = noiseShot(ISA)
 % have a fast Poisson generator, we could use it throughout.  Matlab has
 % one in the stats toolbox, but we don't want to impose that on others.
 %
-% See also:  poissrnd
+% See also:  iePoisson
 %
 % Examples:
 %    [noisyImage,theNoise] = noiseShot(vcGetObject('sensor'));
@@ -59,7 +59,7 @@ else
     [r,c] = find(electronImage < poissonCriterion);
     v = electronImage(electronImage < poissonCriterion);
     if ~isempty(v)
-        vn = poissrnd(v);  % Poisson samples
+        vn = iePoisson(v);  % Poisson samples
         for ii=1:length(r)
             noisyImage(r(ii),c(ii)) = vn(ii);
             
